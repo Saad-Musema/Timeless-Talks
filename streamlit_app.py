@@ -31,7 +31,7 @@ max_length_options = {
 st.title("🗣️ AI-Generated Historical Conversations")
 st.write("Engage in AI-generated dialogues with historical figures on various topics. Choose a historical personality, pick a theme, and experience an interactive discussion!")
 
-api_key = "your_api_key_here"
+api_key = "AIzaSyASnkyIRB2Abu4qUY8yfI8K_2sYLqhh5io"
 
 if not api_key:
     st.error("API key not found. Please add it to `secrets.toml`.", icon="🚫")
