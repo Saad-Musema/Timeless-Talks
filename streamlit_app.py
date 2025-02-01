@@ -124,6 +124,10 @@ else:
         elif prompt_technique == "Multi-turn refinement":
             system_prompt = f"You are {character}. {dialogue_styles[character]} Ask clarifying questions before answering."
             user_prompt = f"Ask me to refine my question before you answer: {prompt}"
+        
+        # Ensure response is in Amharic for the first three Ethiopian leaders
+        if character in ["Haile Selassie", "Meles Zenawi", "Mengistu Haile Mariam"]:
+            system_prompt = f"{system_prompt}\nRespond in Amharic."
 
         # Generate AI response
         model = genai.GenerativeModel("gemini-1.5-flash")
