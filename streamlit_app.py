@@ -3,6 +3,9 @@ import google.generativeai as genai
 
 # Historical figures and their speaking styles
 dialogue_styles = {
+    "Haile Selassie": "Regal, dignified, and focused on unity, peace, and the sovereignty of Ethiopia.",
+    "Meles Zenawi": "Strategic, pragmatic, and focused on Ethiopia’s development and political economy.",
+    "Mengistu Haile Mariam": "Revolutionary, focused on Marxist-Leninist ideology and the military struggle for socialism.",
     "Socrates": "Socratic method, asking deep philosophical questions and engaging in dialectic reasoning.",
     "Albert Einstein": "Analytical, thought-provoking, and often infused with wonder about the universe.",
     "Napoleon Bonaparte": "Strategic, assertive, and confident, with a focus on leadership and ambition.",
@@ -15,15 +18,29 @@ dialogue_styles = {
     "Nikola Tesla": "Explain innovations in electricity and futuristic concepts.",
     "Sun Tzu": "Offer strategic insights with references to 'The Art of War'.",
     "Marie Curie": "Discuss scientific discoveries with a focus on perseverance and research.",
-    "Fictional AI Mentor": "Provide structured, objective, and insightful guidance on various topics."
+    "Winston Churchill": "Defiant, eloquent, and wartime rhetoric focused on determination and courage.",
+    "Mahatma Gandhi": "Peaceful, persuasive, and focusing on non-violent resistance and justice.",
+    "Charles Darwin": "Scientific, methodical, and filled with explanations about natural selection and evolution.",
+    "Friedrich Nietzsche": "Philosophical, challenging conventional morality, and emphasizing individualism.",
+    "Rosa Parks": "Firm, dignified, and unwavering in promoting civil rights and equality.",
+    "Galileo Galilei": "Pioneering, scientific, with a passion for observation and discovery.",
+    "Homer": "Epic, grand, and narrative in style, weaving stories of heroes and gods.",
+    "Jane Austen": "Witty, sharp, and insightful on social manners, class, and relationships.",
+    "Sigmund Freud": "Psychoanalytic, exploring the unconscious mind and the impact of repressed desires.",
+    "Confucius": "Ethical, focused on moral teachings and societal harmony.",
+    "Joan of Arc": "Defiant, inspirational, and passionate about leadership and divine purpose.",
+    "Vladimir Lenin": "Revolutionary, ideological, and focused on Marxist theory and global transformation.",
+    "Simone de Beauvoir": "Philosophical, feminist, exploring existentialism and gender equality.",
+    "Martin Luther King Jr.": "Visionary, peaceful, and motivating with speeches on equality, justice, and non-violence.",
+    "Marie Antoinette": "Elegant, royal, and with a sense of tragedy about the fall of the French monarchy.",
+    "Leon Trotsky": "Revolutionary, intellectual, and deeply engaged in Marxist theory and social change."
 }
+
 
 # Prompting Techniques
 prompt_techniques = {
     "Zero-shot": "Answer directly without examples.",
-    "Few-shot": "See examples before answering.",
     "Chain-of-thought": "Break down reasoning step by step.",
-    "Role prompting": "Take on a specific persona before answering.",
     "Self-reflection": "Generate, critique, and refine response.",
     "Deliberate structure": "Respond in a requested format (bullets, poem, story, etc.).",
     "Multi-turn refinement": "Let the user refine their query iteratively."
@@ -95,15 +112,9 @@ else:
         if prompt_technique == "Zero-shot":
             system_prompt = f"You are {character}. {dialogue_styles[character]}"
             user_prompt = prompt
-        elif prompt_technique == "Few-shot":
-            system_prompt = f"You are {character}. {dialogue_styles[character]} Here are some examples: \n\nQ: What is gravity?\nA: Gravity is the force that attracts objects toward each other, like an apple falling from a tree.\n\n Now answer:"
-            user_prompt = prompt
         elif prompt_technique == "Chain-of-thought":
             system_prompt = f"You are {character}. {dialogue_styles[character]} Think step-by-step before answering."
             user_prompt = f"Step 1: Identify the key idea.\nStep 2: Explain using a simple analogy.\nStep 3: Give a real-world example.\n Now, answer this: {prompt}"
-        elif prompt_technique == "Role prompting":
-            system_prompt = f"Act as {character}. {dialogue_styles[character]}"
-            user_prompt = prompt
         elif prompt_technique == "Self-reflection":
             system_prompt = f"You are {character}. {dialogue_styles[character]} First, answer. Then, review your own response and improve it."
             user_prompt = f"Initial Answer: \n\n Now reflect and improve your response."
