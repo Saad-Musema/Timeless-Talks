@@ -20,6 +20,23 @@
 
 ---
 
+### Prompting Techniques Utilized in the Codebase
+
+1. **Role-Playing with Instructional Prompts:**
+   - Explicit instructions are given to the model to simulate the speaking style and tone of a historical figure (e.g., "Respond as Haile Selassie, the Emperor of Ethiopia").
+
+2. **Emotional Tone Calibration:**
+   - Adjusts the emotional impact of responses to reflect the personality and mood of the historical figure (e.g., "Use a curious tone as Albert Einstein").
+
+3. **Historical Event Framing:**
+   - Frames responses around historical events, providing context to the figure’s thoughts and actions during specific times (e.g., "Describe your thoughts on Ethiopia's resistance in 1935 as Haile Selassie").
+
+4. **User-Driven Customization (User-defined Prompts):**
+   - Allows users to customize tone, topics, or emotional depth, offering a tailored experience based on individual preferences.
+
+These techniques ensure **Timeless-Talks** creates dynamic, authentic, and historically accurate conversations with historical figures.
+
+
 ## How It Works:
 
 ### 1. **Character Selection**:
